@@ -1,0 +1,140 @@
+* { box-sizing: border-box; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; background: #f6f7fb; color: #111; }
+header { background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 16px 24px; position: sticky; top: 0; }
+h1 { font-size: 20px; margin: 0; }
+main { max-width: 800px; margin: 24px auto; padding: 0 16px; }
+
+form { display: flex; gap: 8px; margin-bottom: 16px; }
+label { position: absolute; left: -9999px; }
+input[type="text"] { flex: 1; padding: 12px; border: 1px solid #d1d5db; border-radius: 10px; font-size: 16px; }
+button { padding: 12px 16px; border: 1px solid #d1d5db; background: #fff; border-radius: 10px; cursor: pointer; }
+button:hover { background: #f3f4f6; }
+
+.card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+.card.warning { border-color: #fbbf24; background: #fffbeb; }
+
+ul.info { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+ul.info li { padding: 6px 0; }
+
+.badge { padding: 4px 8px; border-radius: 999px; font-weight: 600; border: 1px solid #d1d5db; }
+.badge.ok { background: #ecfdf5; border-color: #10b981; }
+.badge.no { background: #fef2f2; border-color: #ef4444; }
+
+footer { text-align: center; color: #6b7280; padding: 16px; }
+
+header img {
+  height: 70px;
+  margin-right: 16px;
+  vertical-align: middle;
+}
+header h1 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+header {
+  display: flex;
+  align-items: center;    /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+}
+
+header img {
+  position: absolute;     /* Fija el logo a la izquierda */
+  left: 20px;
+  height: 80px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header h1 {
+  font-family: "Georgia", "Times New Roman", serif; /* Fuente más formal */
+  font-size: 32px;   /* Tamaño grande y elegante */
+  font-weight: bold; /* Negrita */
+  color: #2c3e50;    /* Azul oscuro formal */
+  text-align: center; /* Centrado */
+  margin: 20px 0;
+  letter-spacing: 1px; /* Espaciado entre letras */
+  text-transform: uppercase; /* MAYÚSCULAS elegantes */
+}
+header h1 {
+  border-bottom: 3px solid #34495e; /* Línea azul oscuro debajo */
+  padding-bottom: 10px;
+}
+footer {
+  background-color: #2c3e50;   /* Fondo oscuro */
+  color: #ffffff;              /* Texto blanco */
+  text-align: center;          /* Centrado */
+  padding: 15px 20px;
+  position: fixed;             /* Siempre al fondo de la pantalla */
+  bottom: 0;
+  width: 100%;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+}
+
+footer a {
+  color: #f1c40f;              /* Color del enlace */
+  text-decoration: none;        /* Sin subrayado */
+}
+
+footer a:hover {
+  text-decoration: underline;   /* Subrayado al pasar el mouse */
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh; /* Para centrar verticalmente */
+}
+
+.search-container {
+    text-align: center;       /* mantiene el texto centrado */
+    display: flex;            /* activa flexbox */
+    flex-direction: column;   /* coloca los elementos uno debajo del otro */
+    align-items: center;      /* centra horizontalmente */
+    gap: 20px;                /* espacio entre buscador y resultado */
+    width: 100%;
+    max-width: 500px;         /* mantiene el ancho máximo */
+    margin: 0 auto;           /* centra el contenedor en la página */
+}
+
+.search-container form {
+  display: flex;
+  gap: 10px;                 /* Espacio entre input y botón */
+  justify-content: center;   /* Centra horizontalmente */
+  align-items: center;
+}
+
+.search-container input {
+  width: 400px;              /* Más ancho */
+  padding: 12px 15px;
+  border: 2px solid #2c3e50;
+  border-radius: 8px;
+  font-size: 18px;
+  outline: none;
+}
+
+.search-container input:focus {
+  border-color: #f1c40f;     /* Cambia color al enfocar */
+  box-shadow: 0 0 6px #f1c40f;
+}
+
+.search-container button {
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+  background-color: #34495e;
+}
+
+

@@ -8,7 +8,7 @@
       <input 
         type="text" 
         name="q" 
-        placeholder="Ingrese su número de cuenta catastral" 
+        placeholder="Ingrese su número de CUENTA PREDIAL" 
         required
       >
       <button type="submit">Buscar</button>
@@ -18,7 +18,7 @@
     {% if q and not result %}
       <div class="card warning">
         <h3>Cuenta no encontrada</h3>
-        <p>No se localizó la cuenta <strong>{{ q }}</strong> en la base de datos local.</p>
+        <p>No se localizó la cuenta <strong>{{ q }}</strong> en la base de datos.</p>
       </div>
     {% endif %}
 
@@ -27,18 +27,22 @@
       <div class="card">
         <h3>Resultado</h3>
         <ul class="info">
-          <li><strong>Cuenta:</strong> {{ result.cuenta }}</li>
-          <li><strong>Propietario:</strong> {{ result.propietario or "—" }}</li>
-          <li><strong>Domicilio:</strong> {{ result.domicilio or "—" }}</li>
-          <li><strong>Adeudo:</strong> ${{ "%.2f"|format(result.adeudo) }}</li>
-          <li><strong>Fecha actualización:</strong> {{ result.fecha_actualizacion or "—" }}</li>
+          <li><strong>Cuenta predial:</strong> {{ result.CUENTA_PREDIAL }}</li>
+          <li><strong>Nombre del titular:</strong> {{ result.NOMBRE_TITULAR or "—" }}</li>
+          <li><strong>Adeudo:</strong> ${{ "%.2f"|format(result.ADEUDO) }}</li>
+          <li><strong>Fecha vigencia:</strong> {{ result.FECHA_VIGENCIA or "—" }}</li>
           <li><strong>Estado:</strong>
-            <span class="badge {{ 'ok' if result.status == 'VIGENTE' else 'no' }}">{{ result.status }}</span>
+            <span class="badge {{ 'ok' if result.status == 'VIGENTE' else 'no' }}">
+              {{ result.status }}
+            </span>
           </li>
         </ul>
+        <br>
+        <a href="/descargar/{{ result.CUENTA_PREDIAL }}" class="btn-download">
+          Descargar certificado PDF
+        </a>
       </div>
     {% endif %}
   </div>
 </main>
 {% endblock %}
-

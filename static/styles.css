@@ -136,5 +136,35 @@ main {
 .search-container button:hover {
   background-color: #34495e;
 }
+/* Ajustes para pantallas pequeñas (celulares) */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 20px;       /* título más pequeño */
+    text-align: center;
+  }
+
+  .search-container form {
+    flex-direction: column;  /* input y botón en columna */
+    gap: 12px;
+  }
+
+  .search-container input {
+    width: 100%;             /* que el input use todo el ancho */
+    font-size: 16px;
+  }
+
+  .search-container button {
+    width: 100%;             /* botón del mismo ancho que input */
+    font-size: 16px;
+  }
+
+  ul.info {
+    grid-template-columns: 1fr; /* datos en una sola columna */
+  }
+
+  .card {
+    font-size: 14px;         /* texto un poco más compacto */
+  }
+}
 
 

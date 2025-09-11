@@ -3,14 +3,21 @@
 {% block content %}
 <main>
   <div class="search-container">
+    <!-- Subtítulo destacado -->
+    <h2 class="subtitle-gold">Consulta aquí tu membresía y estado de cuenta predial</h2>
+
+
     <!-- Formulario de búsqueda -->
     <form method="get" action="/">
-      <input 
-        type="text" 
-        name="q" 
-        placeholder="Ingrese su número de CUENTA PREDIAL" 
-        required
-      >
+      <div class="input-group">
+        <i class="fas fa-search"></i>
+        <input 
+          type="text" 
+          name="q" 
+          placeholder="NUMERO DE CUENTA PREDIAL" 
+          required
+        >
+      </div>
       <button type="submit">Buscar</button>
     </form>
 
@@ -27,19 +34,28 @@
       <div class="card">
         <h3>Resultado</h3>
         <ul class="info">
-          <li><strong>Cuenta predial:</strong> {{ result.CUENTA_PREDIAL }}</li>
-          <li><strong>Nombre del titular:</strong> {{ result.NOMBRE_TITULAR or "—" }}</li>
-          <li><strong>Adeudo:</strong> ${{ "%.2f"|format(result.ADEUDO) }}</li>
-          <li><strong>Fecha vigencia:</strong> {{ result.FECHA_VIGENCIA or "—" }}</li>
-          <li><strong>Estado:</strong>
-            <span class="badge {{ 'ok' if result.status == 'VIGENTE' else 'no' }}">
-              {{ result.status }}
-            </span>
-          </li>
-        </ul>
-        <br>
-        <a href="/descargar/{{ result.CUENTA_PREDIAL }}" class="btn-download">
-          Descargar certificado PDF
+  <li><strong>Cuenta:</strong> {{ result.cuenta }}</li>
+  <li><strong>Nombre del titular:</strong> {{ result.propietario or "—" }}</li>
+  <li><strong>Adeudo:</strong> ${{ "%.2f"|format(result.adeudo) }}</li>
+  <li><strong>Fecha vigencia:</strong> {{ result.fecha_vigencia or "—" }}</li>
+  <li class="estado"><strong>Estado:</strong>
+    <span class="badge {{ 'ok' if result.status == 'VIGENTE' else 'no' }}">{{ result.status }}</span>
+  </li>
+</ul>
+
+
+
+        <!-- Leyenda antes del botón -->
+        <p class="cert-legend">
+          Por haber realizado el pago del impuesto predial, el Municipio de San José Iturbide te regala 
+          una cobertura funeraria anual para ti y tu familia este 2025.
+        </p>
+
+        <!-- Botón de descarga -->
+        <a href="https://drive.google.com/uc?export=download&id={{ result.gdrive_id }}" 
+           target="_blank" 
+           class="btn-download">
+          <i class="fas fa-file-pdf"></i> Descargar tu membresía
         </a>
       </div>
     {% endif %}

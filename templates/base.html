@@ -1,26 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Membresia Funeraria</title>
-  <link rel="stylesheet" href="/static/styles.css">
+  <meta charset="UTF-8">
+  <title>MEMBRESIA DE PROTECCION FUNERARIA PARA CONTRIBUYENTES CUMPLIDOS</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
- <header>
-  <img src="/static/logo.png" alt="Logo del Municipio" style="height:350px;">
-  <h1>Consulta Membresia Funeraria</h1>
+
+  <header>
+  <div class="logo">
+    <a href="https://sji.gob.mx" target="_blank">
+      <img src="/static/logo.png" alt="Logo del Municipio">
+    </a>
+  </div>
+  <h1>
+    <i class="fas fa-award"></i> MEMBRESIA DE PROTECCION FUNERARIA PARA CONTRIBUYENTES CUMPLIDOS
+  </h1>
 </header>
 
-  <main>
-    {% block content %}{% endblock %}
-  </main>
-  <footer>
-  <p>
-    &copy; 2025 Municipio de San de Jose Iturbide 
-    <a href="sji.gob.mx" target="_blank">Visita nuestra página oficial</a>
-  </p>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  {% block content %}{% endblock %}
+
+<!-- FOOTER --> 
+<footer> 
+<div class="footer-info"> 
+<p><i class="fas fa-phone"></i> Tel: +52 (419-133-21-19)</p>
+<p><i class="fas fa-map-marker-alt"></i> Pl. Principal 1, Zona Centro, 37980 San José Iturbide, Gto.</p>  
+<p>&copy; 2025 Municipio de San José Iturbide</p> 
+</div> 
 </footer>
+
 
 </body>
 </html>
+

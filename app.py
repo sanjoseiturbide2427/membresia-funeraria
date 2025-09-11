@@ -92,6 +92,9 @@ def api_consulta():
         d["gdrive_url"] = f"https://drive.google.com/uc?export=download&id={d['gdrive_id']}"
     return jsonify({"ok": True, "found": True, "data": d})
 
+# Ejecutar init_db siempre que arranque la app (en Render o local)
+init_db()
+
 if __name__ == "__main__":
-    init_db()
-    app.run(host="127.0.0.1", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
+

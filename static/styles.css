@@ -266,7 +266,7 @@ footer {
   header {
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
     text-align: center;
   }
 
@@ -278,7 +278,14 @@ footer {
     font-size: 22px;
     border-bottom: 2px solid #34495e;
     padding-bottom: 6px;
+
+    /* 👇 Agregamos estas 3 líneas */
+    width: 100%;         /* ocupa todo el ancho */
+    text-align: center;  /* centra el texto */
+    margin: 10px 0;      /* un poco de espacio arriba y abajo */
   }
+}
+
 
   .search-container {
     max-width: 100%;

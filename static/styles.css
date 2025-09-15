@@ -8,6 +8,7 @@ body {
 }
 
 /* === HEADER === */
+/* === HEADER CON LOGO === */
 header {
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
@@ -15,24 +16,25 @@ header {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* centra el h1 */
   min-height: 80px;
 }
 
-header .logo {
+header .logo-header {
   position: absolute;
-  left: 20px;
+  left: 20px;        /* 👈 Logo fijo a la izquierda */
   top: 50%;
   transform: translateY(-50%);
 }
 
-header .logo img {
-  height: 80px; /* Logo tamaño escritorio */
+header .logo-header img {
+  height: 250px;      /* 👈 Ajusta el tamaño a lo que quieras */
+  width: auto;
 }
 
 header h1 {
   font-family: "Georgia", "Times New Roman", serif;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   color: #2c3e50;
   margin: 0;
@@ -41,13 +43,50 @@ header h1 {
   text-align: center;
 }
 
+/* Responsive: logo arriba y título abajo */
+@media (max-width: 600px) {
+  header {
+    display: flex;
+    flex-direction: column; /* 👈 Logo arriba, título abajo */
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    gap: 10px; /* 👈 separa logo y título */
+  }
+
+  header .logo {
+    position: static; /* 👈 deja de ser absolute */
+    transform: none;
+    margin-bottom: 6px; /* espacio extra debajo */
+  }
+
+  header .logo img {
+    height: 70px;  /* tamaño reducido */
+    width: auto;
+  }
+
+  header h1 {
+    font-size: 20px;
+    margin: 0;
+    border-bottom: 2px solid #34495e;
+    padding-bottom: 6px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+
+
+
+
 /* === MAIN === */
 main {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   min-height: calc(100vh - 120px);
-  padding: 30px 20px 140px;
+  padding: 30px 20px 140px; /* espacio extra abajo para que no tape el footer */
 }
 
 /* Subtítulo */
@@ -64,7 +103,17 @@ main {
   text-transform: uppercase;
 }
 
+
+
 /* Contenedor del formulario */
+
+.search-container input::placeholder {
+  font-size: 16px;   /* ajusta el tamaño */
+  color: #999;       /* opcional: cambia el color si quieres */
+  font-style: italic; /* opcional: cursiva para diferenciar */
+}
+
+
 .search-container {
   text-align: center;
   display: flex;
@@ -74,12 +123,6 @@ main {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-}
-
-.search-container input::placeholder {
-  font-size: 16px;
-  color: #999;
-  font-style: italic;
 }
 
 /* Input con icono */
@@ -109,6 +152,9 @@ main {
 
 /* Botón de búsqueda */
 .search-container button {
+background-color: #34495e;
+  transform: scale(1.05);      /* 👈 crece 5% */
+
   background-color: #2c3e50;
   color: white;
   border: none;
@@ -119,26 +165,25 @@ main {
   transition: background-color 0.3s ease;
   width: 100%;
   max-width: 700px;
-  margin-top: 8px;
+  margin-top: 8px;   /* 👈 separa el botón un poco */
 }
-.search-container button:hover {
-  background-color: #34495e;
-}
+
 
 /* === RESULTADOS (CARD) === */
 .card {
   background: #fff;
-  border: 2px solid #2c3e50;
+  border: 2px solid #2c3e50;   /* 👈 Borde más grueso y con color */
   border-radius: 12px;
   padding: 20px;
-  margin-top: 10px;
-  margin-bottom: 100px;
+  margin-top: 10px;            /* 👈 Lo acerca más hacia arriba */
+  margin-bottom: 100px;        /* deja espacio con el footer */
   max-width: 900px;
   width: 100%;
   font-size: 18px;
-  font-family: "Georgia", serif;
+  font-family: "Georgia", serif; /* 👈 Fuente más elegante para resultados */
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
 
 .card h3 {
   font-size: 26px;
@@ -147,6 +192,13 @@ main {
   color: #2c3e50;
 }
 
+/* Animación de aparición */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Lista de info */
 ul.info {
   list-style: none;
   padding: 0;
@@ -159,12 +211,6 @@ ul.info {
 ul.info li {
   font-size: 20px;
   padding: 10px 0;
-}
-
-ul.info li.estado {
-  grid-column: span 2;
-  text-align: center;
-  font-size: 20px;
 }
 
 /* BADGES */
@@ -186,18 +232,20 @@ ul.info li.estado {
   color: #b91c1c;
 }
 
-/* Leyenda */
+/* Leyenda debajo de resultados */
 .cert-legend {
   font-size: 15px;
   font-style: italic;
+  font-weight: 400;
   color: #444; 
-  background: #fff8e1;
-  border-left: 5px solid #f1c40f;
+  background: #fff8e1; /* fondo suave dorado */
+  border-left: 5px solid #f1c40f; /* línea dorada */
   padding: 12px 18px;
   margin-top: 24px;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
+
 
 /* Botón de descarga */
 .btn-download {
@@ -221,13 +269,13 @@ ul.info li.estado {
 footer {
   background-color: #2c3e50;
   color: #ffffff;
+  text-align: center;
   padding: 20px;
   position: fixed;
   bottom: 0;
   width: 100%;
   font-family: "Arial", sans-serif;
   font-size: 14px;
-  text-align: center;
 }
 
 .footer-info {
@@ -251,42 +299,39 @@ footer {
   font-size: 16px;
 }
 
-/* === RESPONSIVE FIX === */
+/* RESPONSIVE */
 @media (max-width: 600px) {
   header {
-    flex-direction: column;   /* logo arriba, h1 abajo */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 10px;
-    gap: 8px;
-  }
-
-  header .logo {
-    position: static !important;
-    transform: none !important;
-    margin: 0 auto;
   }
 
   header .logo img {
     height: 70px;
-    width: auto;
-    display: block;
-    margin: 0 auto;
   }
 
   header h1 {
-    font-size: 20px;
+    font-size: 22px;
     border-bottom: 2px solid #34495e;
     padding-bottom: 6px;
-    width: 100%;
-    text-align: center;
-    margin: 10px 0;
+
+    /* 👇 Agregamos estas 3 líneas */
+    width: 100%;         /* ocupa todo el ancho */
+    text-align: center;  /* centra el texto */
+    margin: 10px 0;      /* un poco de espacio arriba y abajo */
   }
+}
+
 
   .search-container {
     max-width: 100%;
     padding: 0 12px;
+  }
+
+  .input-group {
+    max-width: 100%;
   }
 
   .input-group input {
@@ -309,7 +354,58 @@ footer {
   }
 }
 
+ul.info li.estado {
+  grid-column: span 2;   /* ocupa las dos columnas */
+  text-align: center;    /* centra el contenido */
+  font-size: 20px;       /* un poco más grande para resaltar */
+}
+
 header h1 i {
-  color: #f1c40f !important;
+  color: #f1c40f !important; /* 👈 fuerza el dorado */
   margin-right: 10px;
+}
+
+/* Contenedor del footer */
+footer {
+  background-color: #2c3e50;
+  color: #ffffff;
+  padding: 15px 20px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-family: "Arial", sans-serif;
+  font-size: 14px;
+}
+
+/* Distribución del contenido */
+.footer-content {
+  display: flex;
+  align-items: center;   /* centra verticalmente */
+  justify-content: center; /* textos centrados */
+  gap: 20px;             /* separación entre logo y textos */
+}
+
+/* Info del footer (se queda centrada) */
+.footer-info {
+  text-align: center;
+  flex: 1;          /* ocupa todo el espacio restante */
+}
+footer a {
+  color: #ffffff; /* dorado brillante */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* espacio entre icono y texto */
+}
+
+footer a i {
+  color: #FFD700; /* icono dorado */
+  font-size: 16px;
+}
+
+footer a:hover {
+  color: #fff176; /* dorado más claro al pasar */
+  text-decoration: underline;
 }

@@ -47,7 +47,7 @@ header h1 {
 @media (max-width: 600px) {
   header {
     position: relative;
-    padding: 60px 20px 10px; /* 👈 deja espacio arriba para el logo */
+    padding-top: 90px; /* 👈 reserva espacio para el logo */
     text-align: center;
   }
 
@@ -58,7 +58,7 @@ header h1 {
   }
 
   header .logo img {
-    height: 60px;  /* 👈 ajusta tamaño del logo en móvil */
+    height: 70px;  /* tamaño del logo en móvil */
     width: auto;
   }
 
@@ -67,10 +67,10 @@ header h1 {
     margin: 0;
     border-bottom: 2px solid #34495e;
     padding-bottom: 6px;
-    text-align: center;
-    display: block; /* asegura que ocupe toda la línea */
+    display: block;
   }
 }
+
 
 
 

@@ -8,6 +8,7 @@ body {
 }
 
 /* === HEADER === */
+/* === HEADER CON LOGO === */
 header {
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
@@ -15,31 +16,55 @@ header {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* centra el h1 */
   min-height: 80px;
 }
 
-header .logo {
+header .logo-header {
   position: absolute;
-  left: 20px;
+  left: 20px;        /* 👈 Logo fijo a la izquierda */
   top: 50%;
   transform: translateY(-50%);
 }
 
-header .logo img {
-  height: 250px; /* Logo grande */
+header .logo-header img {
+  height: 250px;      /* 👈 Ajusta el tamaño a lo que quieras */
+  width: auto;
 }
 
-/- === header h1 {
+header h1 {
   font-family: "Georgia", "Times New Roman", serif;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   color: #2c3e50;
   margin: 0;
   letter-spacing: 1px;
   text-transform: uppercase;
   text-align: center;
-} 
+}
+
+/* Responsive: logo arriba y título abajo */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header .logo-header {
+    position: static; /* ya no absoluto */
+    transform: none;
+    margin-bottom: 5px;
+  }
+
+  header .logo-header img {
+    height: 50px;
+  }
+
+  header h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+}
 
 
 /* === MAIN === */
@@ -266,7 +291,7 @@ footer {
   header {
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
     text-align: center;
   }
 
@@ -278,7 +303,14 @@ footer {
     font-size: 22px;
     border-bottom: 2px solid #34495e;
     padding-bottom: 6px;
+
+    /* 👇 Agregamos estas 3 líneas */
+    width: 100%;         /* ocupa todo el ancho */
+    text-align: center;  /* centra el texto */
+    margin: 10px 0;      /* un poco de espacio arriba y abajo */
   }
+}
+
 
   .search-container {
     max-width: 100%;
@@ -320,7 +352,7 @@ header h1 i {
   margin-right: 10px;
 }
 
-/* === FOOTER CON LOGO A LA IZQUIERDA === */
+/* Contenedor del footer */
 footer {
   background-color: #2c3e50;
   color: #ffffff;
@@ -332,37 +364,35 @@ footer {
   font-size: 14px;
 }
 
-.footer-container {
+/* Distribución del contenido */
+.footer-content {
   display: flex;
-  align-items: center;
-  justify-content: center; /* centra el bloque de info */
-  position: relative;
+  align-items: center;   /* centra verticalmente */
+  justify-content: center; /* textos centrados */
+  gap: 20px;             /* separación entre logo y textos */
 }
 
-.footer-logo {
-  position: absolute;
-  left: 20px; /* logo fijo a la izquierda */
-}
-
-.footer-logo img {
-  height: 60px; /* ajusta el tamaño para que no tape nada */
-}
-
+/* Info del footer (se queda centrada) */
 .footer-info {
   text-align: center;
-  flex: 1;
+  flex: 1;          /* ocupa todo el espacio restante */
 }
-
-.footer-info p {
-  margin: 4px 0;
+footer a {
+  color: #ffffff; /* dorado brillante */
+  text-decoration: none;
+  font-weight: bold;
   font-size: 14px;
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 6px; /* espacio entre icono y texto */
 }
 
-.footer-info i {
-  color: #f1c40f; /* dorado */
-  font-size: 14px;
+footer a i {
+  color: #FFD700; /* icono dorado */
+  font-size: 16px;
+}
+
+footer a:hover {
+  color: #fff176; /* dorado más claro al pasar */
+  text-decoration: underline;
 }

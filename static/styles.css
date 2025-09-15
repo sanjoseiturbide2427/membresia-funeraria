@@ -46,19 +46,22 @@ header h1 {
 /* Responsive: logo arriba y título abajo */
 @media (max-width: 600px) {
   header {
-    position: relative;
-    padding-top: 90px; /* 👈 reserva espacio para el logo */
+    display: flex;
+    flex-direction: column; /* 👈 Logo arriba, título abajo */
+    align-items: center;
     text-align: center;
+    padding: 10px;
+    gap: 10px; /* 👈 separa logo y título */
   }
 
   header .logo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    position: static; /* 👈 deja de ser absolute */
+    transform: none;
+    margin-bottom: 6px; /* espacio extra debajo */
   }
 
   header .logo img {
-    height: 70px;  /* tamaño del logo en móvil */
+    height: 70px;  /* tamaño reducido */
     width: auto;
   }
 
@@ -67,9 +70,11 @@ header h1 {
     margin: 0;
     border-bottom: 2px solid #34495e;
     padding-bottom: 6px;
-    display: block;
+    width: 100%;
+    text-align: center;
   }
 }
+
 
 
 

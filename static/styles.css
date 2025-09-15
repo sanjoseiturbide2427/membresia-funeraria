@@ -47,24 +47,33 @@ header h1 {
 @media (max-width: 600px) {
   header {
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px; /* 👈 da espacio para que el logo no choque */
+    position: relative; 
   }
 
-  header .logo-header {
-    position: static; /* ya no absoluto */
-    transform: none;
-    margin-bottom: 5px;
+  header .logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
   }
 
-  header .logo-header img {
-    height: 50px;
+  header .logo img {
+    height: 70px; /* tamaño del logo en móvil */
   }
 
   header h1 {
-    font-size: 20px;
-    text-align: center;
+    font-size: 22px;
+    border-bottom: 2px solid #34495e;
+    padding-bottom: 6px;
+    width: 100%;         
+    text-align: center;  
+    margin: 0;           /* elimina márgenes extra */
   }
 }
+
 
 
 /* === MAIN === */
